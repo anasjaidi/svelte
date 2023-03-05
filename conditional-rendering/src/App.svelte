@@ -5,6 +5,11 @@
   let title = "";
   let image = "";
   let description = "";
+  let done = false
+
+  const addCartClickHandler = e => {
+    done = true
+  }
 </script>
 
 <style>
@@ -32,5 +37,7 @@
     <textarea rows="3" bind:value={description} id="desc" />
   </div>
 </div>
-
+<button on:click={addCartClickHandler}>submit</button>
+{#if done}
 <ContactCard userName={name} jobTitle={title} {description} userImage={image} />
+  {/if}
