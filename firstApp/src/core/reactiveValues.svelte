@@ -15,9 +15,33 @@
      *           created with the writable function from the svelte/store module. Changes to the store's value,
      *           trigger updates to the view.
      * */
+    import { writable } from 'svelte/store';
+    const counter = writable(0);
 
-    let counter = 0;
+    function handleClick() {
+        counter.update(n => n + 1);
+    }
+    let count = 0;
+    $: doubledCount = count * 2;
+    const incCount = () => {
+        count++
+    }
 </script>
+
+
+<main>
+    <div class="let">
+        <p>The count is {count}</p>
+        <button on:click={incCount}>inc count</button>
+    </div>
+    <div class="$:">
+        <p>The count is {count}, and its double is {doubledCount}</p>
+    </div>
+    <div class="writable">
+        <button on:click={handleClick}>Click me</button>
+        <p>The count is {$counter}</p>
+    </div>
+</main>
 
 <style>
 
