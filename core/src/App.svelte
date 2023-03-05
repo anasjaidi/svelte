@@ -11,7 +11,7 @@
     <input  type="text" bind:value={name}/>
 </main>
 
-<ContactCard></ContactCard>
+<ContactCard userName={name}></ContactCard>
 
 <style>
 

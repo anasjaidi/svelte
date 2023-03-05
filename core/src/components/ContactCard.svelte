@@ -57,7 +57,7 @@
       <img src="" alt="" />
     </div>
     <div class="user-data">
-      <h1>User Name</h1>
+      <h1>{userName}</h1>
       <h2>Job Title</h2>
     </div>
   </header>
@@ -65,3 +65,11 @@
     <p>A short description</p>
   </div>
 </div>
+
+
+<script>
+  export let userName;
+  export let jobTitle;
+
+  export let description;
+</script>
