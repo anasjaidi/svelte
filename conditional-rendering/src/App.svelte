@@ -62,6 +62,9 @@
 <!--  <hr>-->
 <!--{/if}-->
 
-{#each createdContacts as contact}
+{#each createdContacts as contact, i}
+  <h1>#{i}</h1>
   <ContactCard userName={contact.name} jobTitle={contact.title} description={contact.description} userImage={contact.image} />
+{:else}
+  <p>empty</p>
 {/each}
