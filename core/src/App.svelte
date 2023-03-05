@@ -3,8 +3,9 @@
     import ContactCard from "./components/ContactCard.svelte";
 
     let name = ""
-    let jobTitle = ""
     let desc = ""
+    let jobTitle = ""
+    let imgLink = ""
     $: showName = "Hi " + name
 </script>
 
@@ -16,9 +17,11 @@
     job title: <input  type="text" bind:value={jobTitle}/>
     <br>
     desc: <input  type="text" bind:value={desc}/>
+    <br>
+    image link: <input  type="text" bind:value={imgLink}/>
 </main>
 
-<ContactCard userName={name} jobTitle="{jobTitle}" description="{desc}"></ContactCard>
+<ContactCard userName={name} jobTitle="{jobTitle}" description="{desc}" imgLink="{imgLink}"></ContactCard>
 
 <style>
 

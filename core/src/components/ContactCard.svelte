@@ -54,7 +54,7 @@
 <div class="contact-card">
   <header>
     <div class="thumb">
-      <img src="" alt="" />
+      <img src="{imgLink}" alt="" />
     </div>
     <div class="user-data">
       <h1>{userName}</h1>
@@ -72,4 +72,6 @@
   export let jobTitle;
 
   export let description;
+
+  export let imgLink;
 </script>
