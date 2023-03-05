@@ -1,4 +1,7 @@
 <script>
+
+  import ReactiveValues from "./core/reactiveValues.svelte";
+
   let counter = 0;
   let name = "";
 
@@ -30,4 +33,14 @@
       <button on:click={resetButtonHandler}>reset to jaidi</button>
     </form>
   </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <ReactiveValues />
 </main>
