@@ -11,7 +11,7 @@
   const addCartClickHandler = e => {
     if (name.trim().length > 0 && description.trim().length > 0 && image.trim().length > 0 && title.trim().length > 0) {
       done = "ready"
-      createdContacts = [...createdContacts, {name, title, image, description}]
+      createdContacts = [...createdContacts, {name, title, image, description, id: Math.random()}]
       return ;
     }
     done = "not-ready"
@@ -62,7 +62,7 @@
 <!--  <hr>-->
 <!--{/if}-->
 
-{#each createdContacts as contact, i}
+{#each createdContacts as contact, i (contact.id)}
   <h1>#{i}</h1>
   <ContactCard userName={contact.name} jobTitle={contact.title} description={contact.description} userImage={contact.image} />
 {:else}
