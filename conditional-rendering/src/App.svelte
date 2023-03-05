@@ -5,10 +5,16 @@
   let title = "";
   let image = "";
   let description = "";
-  let done = false
+  let done = "empty"
+  let createdContacts = []
 
   const addCartClickHandler = e => {
-    done = true
+    if (name.trim().length > 0 && description.trim().length > 0 && image.trim().length > 0 && title.trim().length > 0) {
+      done = "ready"
+      createdContacts = [...createdContacts, {name, title, image, description}]
+      return ;
+    }
+    done = "not-ready"
   }
 </script>
 
@@ -16,6 +22,10 @@
   #form {
     width: 30rem;
     max-width: 100%;
+    color: black;
+  }
+  input {
+    color: #1a1a1a;
   }
 </style>
 
@@ -37,9 +47,21 @@
     <textarea rows="3" bind:value={description} id="desc" />
   </div>
 </div>
+
+
+
 <button on:click={addCartClickHandler}>submit</button>
-{#if ((done && 1 )|| 0)}
-<ContactCard userName={name} jobTitle={title} {description} userImage={image} />
-  {:else if !done}
-  <p>invalid</p>
-  {/if}
+
+
+
+<!--{#if done === "ready"}-->
+<!--      <ContactCard userName={name} jobTitle={title} {description} userImage={image} />-->
+<!--{:else if done === "not-ready"}-->
+<!--      <p>invalid</p>-->
+<!--{:else}-->
+<!--  <hr>-->
+<!--{/if}-->
+
+{#each createdContacts as contact}
+  <ContactCard userName={contact.name} jobTitle={contact.title} description={contact.description} userImage={contact.image} />
+{/each}
