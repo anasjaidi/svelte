@@ -17,6 +17,9 @@
     width: 33%;
     height: 100%;
   }
+  .thumb-none {
+    background: #333333;
+  }
 
   img {
     width: 100%;
@@ -53,7 +56,8 @@
 
 <div class="contact-card">
   <header>
-    <div class="thumb">
+    <div class="thumb" class:thumb-none={imgLink ? false : true}>
+<!--    <div class="{imgLink ? "thumb" : "thumb thumb-none"}">-->
       <img src="{imgLink}" alt="" />
     </div>
     <div class="user-data">
