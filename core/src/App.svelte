@@ -21,7 +21,7 @@
     image link: <input  type="text" bind:value={imgLink}/>
 </main>
 
-<ContactCard userName={name} jobTitle="{jobTitle}" description="{desc}" imgLink="{imgLink}"></ContactCard>
+<ContactCard userName={name} {jobTitle} description="{desc}" {imgLink}></ContactCard>
 
 <style>
 
