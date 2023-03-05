@@ -26,6 +26,7 @@
     <p>Name: {name}</p>
     <form>
       <input type="text" on:input={inputChangeHandler} value={name}/>
+      <input bind:value={name} />
       <button on:click={resetButtonHandler}>reset to jaidi</button>
     </form>
   </div>
