@@ -38,6 +38,8 @@
   </div>
 </div>
 <button on:click={addCartClickHandler}>submit</button>
-{#if done}
+{#if ((done && 1 )|| 0)}
 <ContactCard userName={name} jobTitle={title} {description} userImage={image} />
+  {:else if !done}
+  <p>invalid</p>
   {/if}
