@@ -19,7 +19,7 @@
 
 <main>
   <div>
-    <p>counter: {counter}</p>
+    <p style="font-size: {(counter > 16 ? counter : 16) + 'px'}">counter: {counter}</p>
     <button on:click={incButtonClickHandler}>inc</button>
   </div>
   <div>
