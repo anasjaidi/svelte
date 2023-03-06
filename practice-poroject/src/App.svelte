@@ -27,6 +27,35 @@
 <Header></Header>
 <main id="main">
     <MeetupGrid {meetups} ></MeetupGrid>
+    <form>
+        <div>
+            <div class="form-control">
+                <label for="title">title</label>
+                <input type="text" id="title">
+            </div>
+            <div class="form-control">
+                <label for="subtitle">subtitle</label>
+                <input type="text" id="subtitle">
+            </div>
+            <div class="form-control">
+                <label for="addr">address</label>
+                <input type="text" id="addr">
+            </div>
+            <div class="form-control">
+                <label for="imgUrl">image url</label>
+                <input type="text" id="imgUrl">
+            </div>
+            <div class="form-control">
+                <label for="emailContact">contact email</label>
+                <input type="text" id="emailContact">
+            </div>
+            <div class="form-control">
+                <label for="desc">description</label>
+                <textarea  id="desc" />
+            </div>
+            <button on:click|preventDefault={submitClickHandler}>add</button>
+        </div>
+    </form>
 </main>
 
 <style>
