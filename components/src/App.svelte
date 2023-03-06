@@ -2,6 +2,7 @@
     import Product from "./components/Product.svelte";
     import Modal from "./components/Modal.svelte";
 
+    let agree = false
     let showModal = false
     let products = [
         {
@@ -22,10 +23,10 @@
 </script>
 
 {#if showModal}
-<Modal on:cancel={() => showModal = false} on:close={() => showModal = false}>
+<Modal on:cancel={() => showModal = false} on:close={() => showModal = false} let:didAgree={agree}>
     <h1 slot="header">Hi, There!</h1>
     <input type="email" name="email" id="email">
-<!--    <button slot="footer" on:click={() => showModal = false}>close modal</button>-->
+    <button slot="footer" on:click={() => showModal = false} disabled="{!agree}">confirm modal</button>
 </Modal>
 {/if}
 
