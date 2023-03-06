@@ -1,6 +1,6 @@
 <script>
     import Header from "./UI/Header.svelte";
-    import MeetUpsItem from "./MeetUps/MeetUpsItem.svelte";
+    import MeetUpsItem from "./MeetUps/MeetUpItem.svelte";
 
     let meetups = [
         {
