@@ -2,6 +2,7 @@
     import Product from "./components/Product.svelte";
     import Modal from "./components/Modal.svelte";
 
+    let showModal = false
     let products = [
         {
             id: Math.random(),
@@ -20,12 +21,13 @@
 
 </script>
 
-<Modal>
+{#if showModal}
+<Modal on:cancel={() => showModal = false} on:close={() => showModal = false}>
     <h1 slot="header">Hi, There!</h1>
     <input type="email" name="email" id="email">
-<!--    <button slot="footer">close modal</button>-->
+<!--    <button slot="footer" on:click={() => showModal = false}>close modal</button>-->
 </Modal>
-
+{/if}
 
 {#each productsFilltred as product}
     <Product
@@ -34,6 +36,7 @@
             on:delete-element={(obj) => console.log(obj.detail.payload)}
     ></Product>
 {/each}
+<button on:click={() => showModal = true}>show Modal</button>
 <style>
 
 </style>
