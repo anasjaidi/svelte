@@ -23,6 +23,7 @@
 <Modal>
     <h1 slot="header">Hi, There!</h1>
     <input type="email" name="email" id="email">
+<!--    <button slot="footer">close modal</button>-->
 </Modal>
 
 

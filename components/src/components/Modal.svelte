@@ -9,6 +9,11 @@
     <div class="content">
         <slot></slot>
     </div>
+    <footer>
+        <slot name="footer">
+            <button>close</button>
+        </slot>
+    </footer>
 </div>
 
 <style>
