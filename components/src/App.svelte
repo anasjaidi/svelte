@@ -1,8 +1,10 @@
 <script>
     import Product from "./components/Product.svelte";
     import Modal from "./components/Modal.svelte";
+    import {tick} from "svelte";
 
     let agree = false
+    let text = "hi what is up guys ????"
     let showModal = false
     let products = [
         {
@@ -19,6 +21,19 @@
     $:  productsFilltred = products.map(el => {
         return {title: el.title, price: el.price}
     })
+
+    const transform = e => {
+        if (e.which !== 9) return ;
+        const startSelection = e.target.selectionStart
+        const endSelection = e.target.selectionEnd
+        const value = e.target.value
+        text = value.slice(0, startSelection) + value.slice(startSelection, endSelection).toUpperCase() + value.slice(endSelection)
+
+        tick().then(() => {
+            e.target.selectionEnd = endSelection
+            e.target.selectionStart = startSelection
+        })
+    }
 
 </script>
 
@@ -38,6 +53,9 @@
     ></Product>
 {/each}
 <button on:click={() => showModal = true}>show Modal</button>
+
+<textarea name="" id="" cols="30" rows="10" value={text} on:keydown|preventDefault={transform}></textarea>
+
 <style>
 
 </style>
