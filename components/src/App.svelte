@@ -1,5 +1,6 @@
 <script>
     import Product from "./components/Product.svelte";
+    import Modal from "./components/Modal.svelte";
 
     let products = [
         {
@@ -19,6 +20,7 @@
 
 </script>
 
+<Modal content="hi world"></Modal>
 {#each productsFilltred as product}
     <Product
             {...product}
