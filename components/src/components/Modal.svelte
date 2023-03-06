@@ -1,10 +1,9 @@
 <script>
-    export let content;
 </script>
 
 <div class="backdrop"></div>
 <div class="modal">
-    {content}
+    <slot></slot>
 </div>
 
 <style>

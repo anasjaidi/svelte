@@ -20,7 +20,12 @@
 
 </script>
 
-<Modal content="hi world"></Modal>
+<Modal>
+    <h1>Hi, There!</h1>
+    <input type="email" name="email" id="email">
+</Modal>
+
+
 {#each productsFilltred as product}
     <Product
             {...product}
