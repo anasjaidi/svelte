@@ -2,7 +2,7 @@
     import {createEventDispatcher, onMount, onDestroy, afterUpdate, beforeUpdate, tick} from "svelte";
 
     let agree = false;
-
+    let scroll = false
     const dispatch = createEventDispatcher()
 
     onMount(() => {
@@ -11,6 +11,22 @@
 
     onDestroy(() => {
         console.log("on destroy")
+    })
+
+    beforeUpdate(() => {
+        console.log("before update")
+        scroll = agree
+    })
+
+    afterUpdate(() => {
+        console.log("after update")
+        if (scroll) {
+            let modal = document.getElementsByClassName("modal")
+
+            modal = modal ? modal[0] : null
+
+            if (modal) modal.scrollTo(0, modal.scrollHeight)
+        }
     })
 
     console.log("on init")
@@ -51,7 +67,7 @@
         top: 10vh;
         left: 10%;
         width: 80%;
-        max-height: 80vh;
+        max-height: 10vh;
         background: white;
         border-radius: 5px;
         z-index: 100;
