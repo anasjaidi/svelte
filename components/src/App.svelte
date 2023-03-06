@@ -2,7 +2,7 @@
     import Product from "./components/Product.svelte";
 </script>
 
-<Product productTitle="product 1" on:click={() => alert("yes")} deleteHandler="{() => console.log(123)}"></Product>
+<Product productTitle="product 1" on:add-element={(obj) => console.log(obj.detail.payload)} on:delete-element={(obj) => console.log(obj.detail.payload)}></Product>
 
 <style>
 

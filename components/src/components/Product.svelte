@@ -1,12 +1,15 @@
 <script>
+
+    import {createEventDispatcher} from "svelte";
+
+    const dispatcher = createEventDispatcher()
     export let productTitle;
-    export let deleteHandler;
 </script>
 
 <article>
     <h1>{productTitle}</h1>
-    <button on:click>add on card</button>
-    <button on:click={deleteHandler}>delete</button>
+    <button on:click={() => dispatcher("add-element", {payload: "Add"})}>add on card</button>
+    <button on:click={() => dispatcher("delete-element", {payload: "Delete"})}>delete</button>
 </article>
 
 <style></style>
