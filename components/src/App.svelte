@@ -1,9 +1,31 @@
 <script>
     import Product from "./components/Product.svelte";
+
+    let products = [
+        {
+            id: Math.random(),
+            title: 'product 1',
+            price: 12.99
+        },
+        {
+            id: Math.random(),
+            title: 'product 2',
+            price: 15.99,
+        },
+    ]
+    $:  productsFilltred = products.map(el => {
+        return {title: el.title, price: el.price}
+    })
+
 </script>
 
-<Product productTitle="product 1" on:add-element={(obj) => console.log(obj.detail.payload)} on:delete-element={(obj) => console.log(obj.detail.payload)}></Product>
-
+{#each productsFilltred as product}
+    <Product
+            {...product}
+             on:add-element={(obj) => console.log(obj.detail.payload)}
+            on:delete-element={(obj) => console.log(obj.detail.payload)}
+    ></Product>
+{/each}
 <style>
 
 </style>
