@@ -25,12 +25,21 @@
 </script>
 
 <Header></Header>
-<main>
+<main id="main">
     {#each meetups as meet (meet.id)}
-        <MeetUpsItem></MeetUpsItem>
+        <MeetUpsItem
+            title={meet.title}
+            subtitle={meet.subtitle}
+            imgUrl={meet.imageUrl}
+            description={meet.description}
+            contactAddress={meet.contactEmail}
+            address={meet.address}
+        ></MeetUpsItem>
     {/each}
 </main>
 
 <style>
-
+    #main {
+        margin-top: 5rem;
+    }
 </style>
