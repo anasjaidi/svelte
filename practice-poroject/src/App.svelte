@@ -22,38 +22,56 @@
             imageUrl: ""
         }
     ]
+    let title;
+    let subtitle;
+    let address;
+    let description;
+    let contactEmail;
+    let imgUrl;
+
+    const submitClickHandler = e => {
+        meetups = [...meetups, {
+                id: Math.random(),
+                title,
+                subtitle,
+                description,
+                address,
+                contactEmail,
+                imageUrl: imgUrl
+        }]
+    }
 </script>
 
 <Header></Header>
 <main id="main">
     <MeetupGrid {meetups} ></MeetupGrid>
-    <form>
+    <form on:submit|preventDefault={submitClickHandler}>
         <div>
             <div class="form-control">
                 <label for="title">title</label>
-                <input type="text" id="title">
+                <input type="text" id="title" bind:value={title}>
             </div>
             <div class="form-control">
                 <label for="subtitle">subtitle</label>
-                <input type="text" id="subtitle">
+                <input type="text" id="subtitle" bind:value={subtitle}>
             </div>
             <div class="form-control">
                 <label for="addr">address</label>
-                <input type="text" id="addr">
+                <input type="text" id="addr" bind:value={address}>
             </div>
             <div class="form-control">
                 <label for="imgUrl">image url</label>
-                <input type="text" id="imgUrl">
+                <input type="text" id="imgUrl" bind:value={imgUrl}>
             </div>
             <div class="form-control">
                 <label for="emailContact">contact email</label>
-                <input type="text" id="emailContact">
+                <input type="text" id="emailContact" bind:value={contactEmail}>
             </div>
             <div class="form-control">
                 <label for="desc">description</label>
-                <textarea  id="desc" />
+                <textarea rows="3"  id="desc" bind:value={description}></textarea>
             </div>
-            <button on:click|preventDefault={submitClickHandler}>add</button>
+            <button>add</button>
         </div>
     </form>
 </main>
