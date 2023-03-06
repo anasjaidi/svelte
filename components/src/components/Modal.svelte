@@ -1,8 +1,19 @@
 <script>
-    import {createEventDispatcher} from "svelte";
+    import {createEventDispatcher, onMount, onDestroy, afterUpdate, beforeUpdate, tick} from "svelte";
 
     let agree = false;
+
     const dispatch = createEventDispatcher()
+
+    onMount(() => {
+        console.log("on mount")
+    })
+
+    onDestroy(() => {
+        console.log("on destroy")
+    })
+
+    console.log("on init")
 </script>
 
 <div class="backdrop" on:click={() => {dispatch("cancel")}}></div>
