@@ -3,7 +3,12 @@
 
 <div class="backdrop"></div>
 <div class="modal">
-    <slot></slot>
+    <header>
+        <slot name="header"></slot>
+    </header>
+    <div class="content">
+        <slot></slot>
+    </div>
 </div>
 
 <style>

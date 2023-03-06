@@ -21,7 +21,7 @@
 </script>
 
 <Modal>
-    <h1>Hi, There!</h1>
+    <h1 slot="header">Hi, There!</h1>
     <input type="email" name="email" id="email">
 </Modal>
 
